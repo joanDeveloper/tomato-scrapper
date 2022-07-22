@@ -1,0 +1,65 @@
+{
+  "name": "tomato-scrapper",
+  "version": "1.0.0",
+  "description": "My Moleculer-based microservices project",
+  "scripts": {
+    "build": "tsc --build tsconfig.json",
+    "dev": "nodemon --watch './src/**/*' --exec 'ts-node' src/server.ts",
+    "moleculer": "ts-node ./node_modules/moleculer/bin/moleculer-runner.js --hot --repl --config src/config/moleculer.config.ts src/services/**/*.service.ts",
+    "start": "moleculer-runner --config dist/moleculer.config.js",
+    "cli": "moleculer connect ",
+    "ci": "jest --watch",
+    "test": "jest --coverage"
+  },
+  "keywords": [
+    "microservices",
+    "moleculer"
+  ],
+  "author": "",
+  "devDependencies": {
+    "jest": "^25.1.0",
+    "jest-cli": "^25.1.0",
+    "moleculer-repl": "^0.6.2",
+    "nodemon": "^2.0.19",
+    "ts-jest": "^25.3.0",
+    "ts-node": "^8.8.1"
+  },
+  "dependencies": {
+    "@graphql-tools/schema": "^8.5.0",
+    "@types/graphql": "^14.5.0",
+    "@types/jest": "^25.1.4",
+    "@types/mkdirp": "^1.0.0",
+    "@types/node": "^13.9.8",
+    "apollo-server-core": "^3.10.0",
+    "apollo-server-express": "^3.10.0",
+    "dotenv": "^16.0.1",
+    "express": "^4.18.1",
+    "graphql": "^16.5.0",
+    "moleculer": "^0.14.0",
+    "puppeteer": "^15.5.0",
+    "typescript": "^3.8.3"
+  },
+  "engines": {
+    "node": ">= 10.x.x"
+  },
+  "jest": {
+    "coverageDirectory": "<rootDir>/coverage",
+    "testEnvironment": "node",
+    "moduleFileExtensions": [
+      "ts",
+      "tsx",
+      "js"
+    ],
+    "transform": {
+      "^.+\\.(ts|tsx)$": "ts-jest"
+    },
+    "testMatch": [
+      "**/*.spec.(ts|js)"
+    ],
+    "globals": {
+      "ts-jest": {
+        "tsConfig": "tsconfig.json"
+      }
+    }
+  }
+}
