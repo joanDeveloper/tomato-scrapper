@@ -1,7 +1,7 @@
 import { Service, ServiceBroker } from "moleculer";
 import puppeteer from "puppeteer";
 
-export default class HttpRequest extends Service {
+export default class Puppeteer extends Service {
     public constructor(public broker: ServiceBroker) {
         super(broker);
         this.parseServiceSchema({
@@ -12,6 +12,7 @@ export default class HttpRequest extends Service {
                         headless: true, // si esta en false activa el modo navegador
                         // args: [ '--proxy-server=http://10.10.10.10:8080' ]
                     });
+                    
                     return await browser.newPage();
                 }
             },
